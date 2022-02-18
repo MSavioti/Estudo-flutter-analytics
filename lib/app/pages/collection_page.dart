@@ -1,0 +1,55 @@
+import 'package:estudo_flutter_analytics/app/shared/models/collection.dart';
+import 'package:estudo_flutter_analytics/app/shared/models/product.dart';
+import 'package:estudo_flutter_analytics/app/shared/services/services_products.dart';
+import 'package:flutter/material.dart';
+
+class CollectionPage extends StatefulWidget {
+  const CollectionPage({Key? key}) : super(key: key);
+
+  @override
+  State<CollectionPage> createState() => _CollectionPageState();
+}
+
+class _CollectionPageState extends State<CollectionPage> {
+  List<Product> products = [];
+
+  @override
+  void initState() {
+    _loadProducts();
+    super.initState();
+  }
+
+  void _loadProducts() async {
+    products = await ServiceProducts.instance.getProducts(5);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final _collection =
+        ModalRoute.of(context)?.settings.arguments as Collection;
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(_collection.name),
+      ),
+      body: products.isEmpty
+          ? const Center(child: CircularProgressIndicator())
+          : ListView.builder(
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              itemCount: products.length,
+              itemBuilder: (context, i) {
+                return Card(
+                  child: ListTile(
+                    contentPadding: const EdgeInsets.symmetric(
+                      vertical: 8.0,
+                      horizontal: 8.0,
+                    ),
+                    leading: Image.network(products[i].image),
+                    title: Text(products[i].name),
+                  ),
+                );
+              },
+            ),
+    );
+  }
+}
