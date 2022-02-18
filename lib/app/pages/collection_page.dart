@@ -20,7 +20,10 @@ class _CollectionPageState extends State<CollectionPage> {
   }
 
   void _loadProducts() async {
-    products = await ServiceProducts.instance.getProducts(5);
+    final _products = await ServiceProducts.instance.getProducts(5);
+    setState(() {
+      products = _products;
+    });
   }
 
   @override
@@ -46,6 +49,12 @@ class _CollectionPageState extends State<CollectionPage> {
                     ),
                     leading: Image.network(products[i].image),
                     title: Text(products[i].name),
+                    onTap: () {
+                      Navigator.of(context).pushNamed(
+                        '/product',
+                        arguments: products[i],
+                      );
+                    },
                   ),
                 );
               },

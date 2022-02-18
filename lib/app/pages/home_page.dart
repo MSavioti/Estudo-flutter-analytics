@@ -43,6 +43,12 @@ class _HomePageState extends State<HomePage> {
                     ),
                     leading: Image.network(collections[i].image),
                     title: Text(collections[i].name),
+                    onTap: () {
+                      Navigator.of(context).pushNamed(
+                        '/collection',
+                        arguments: collections[i],
+                      );
+                    },
                   ),
                 );
               },
