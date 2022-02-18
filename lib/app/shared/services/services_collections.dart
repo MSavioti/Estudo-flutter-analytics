@@ -15,8 +15,8 @@ class ServiceCollections {
 
     for (var i = 0; i < pageSize; i++) {
       final _collection = Collection(
-        id: i,
-        name: 'Collection $i',
+        id: i + 1,
+        name: 'Collection ${i + 1}',
         image: 'https://picsum.photos/100?random=${i + 1}',
         products: ['1', '2', '3', '4', '5'],
       );

@@ -14,9 +14,9 @@ class ServiceProducts {
 
     for (var i = 0; i < pageSize; i++) {
       final _product = Product(
-        id: i,
-        sku: '$i',
-        name: 'Product $i',
+        id: i + 1,
+        sku: '${i + 1}',
+        name: 'Product ${i + 1}',
         image: 'https://picsum.photos/100?random=${i + 1}',
       );
       _products.add(_product);
