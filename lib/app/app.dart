@@ -8,10 +8,13 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const HomePage(),
       theme: ThemeData(
         primaryColor: Colors.purple,
       ),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const HomePage(),
+      },
     );
   }
 }
