@@ -1,4 +1,5 @@
 import 'package:estudo_flutter_analytics/env.dart';
+import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:usage/usage_io.dart';
 
@@ -6,6 +7,7 @@ class UtilsAnalytics {
   late AnalyticsIO googleAnalytics;
 
   UtilsAnalytics._() {
+    WidgetsFlutterBinding.ensureInitialized();
     _setUpAnalytics();
   }
 
