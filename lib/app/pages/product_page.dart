@@ -1,4 +1,5 @@
 import 'package:estudo_flutter_analytics/app/shared/models/product.dart';
+import 'package:estudo_flutter_analytics/app/shared/utils/utils_analytics.dart';
 import 'package:flutter/material.dart';
 
 class ProductPage extends StatelessWidget {
@@ -7,6 +8,7 @@ class ProductPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _product = ModalRoute.of(context)?.settings.arguments as Product;
+    UtilsAnalytics.instance.sendProductScreenView(_product.sku);
 
     return Scaffold(
       appBar: AppBar(

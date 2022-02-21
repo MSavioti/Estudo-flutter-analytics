@@ -1,6 +1,7 @@
 import 'package:estudo_flutter_analytics/app/shared/models/collection.dart';
 import 'package:estudo_flutter_analytics/app/shared/models/product.dart';
 import 'package:estudo_flutter_analytics/app/shared/services/services_products.dart';
+import 'package:estudo_flutter_analytics/app/shared/utils/utils_analytics.dart';
 import 'package:flutter/material.dart';
 
 class CollectionPage extends StatefulWidget {
@@ -11,6 +12,7 @@ class CollectionPage extends StatefulWidget {
 }
 
 class _CollectionPageState extends State<CollectionPage> {
+  bool _sentUsage = false;
   List<Product> products = [];
 
   @override
@@ -26,10 +28,20 @@ class _CollectionPageState extends State<CollectionPage> {
     });
   }
 
+  void _sendUsage(Collection collection) async {
+    if (_sentUsage) {
+      return;
+    }
+
+    UtilsAnalytics.instance.sendCollectionScreenView(collection.id);
+    _sentUsage = true;
+  }
+
   @override
   Widget build(BuildContext context) {
     final _collection =
         ModalRoute.of(context)?.settings.arguments as Collection;
+    _sendUsage(_collection);
 
     return Scaffold(
       appBar: AppBar(
