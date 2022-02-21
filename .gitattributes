@@ -44,3 +44,4 @@ web/* linguist-detectable=false
 *.kt linguist-detectable=false
 *.js linguist-detectable=false
 *.h linguist-detectable=false
+*.cpp linguist-detectable=false
