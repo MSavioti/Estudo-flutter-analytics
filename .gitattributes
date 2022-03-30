@@ -1,28 +1,4 @@
-# Auto detect text files and perform LF normalization
-*                 text=auto
-
-# Always perform LF normalization
-*.dart            text
-*.gradle          text
-*.html            text
-*.java            text
-*.json            text
-*.md              text
-*.py              text
-*.sh              text
-*.txt             text
-*.xml             text
-*.yaml            text
-
-# Make sure that these Windows files always have CRLF line endings at checkout
-*.bat             text eol=crlf
-*.ps1             text eol=crlf
-*.rc              text eol=crlf
-*.sln             text eol=crlf
-*.props           text eol=crlf
-*.vcxproj         text eol=crlf
-*.vcxproj.filters text eol=crlf
-# Including templates
+lates
 *.sln.tmpl        text eol=crlf
 *.props.tmpl      text eol=crlf
 *.vcxproj.tmpl    text eol=crlf
@@ -45,3 +21,5 @@ web/* linguist-detectable=false
 *.js linguist-detectable=false
 *.h linguist-detectable=false
 *.cpp linguist-detectable=false
+*.cmake linguist-detectable=false
+*.txt linguist-detectable=false
